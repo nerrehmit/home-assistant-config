@@ -37,13 +37,7 @@ mqtt:
   broker: !secret mqtt_host
 
 light: !include lights.yaml
-
-tradfri:
-  host: !secret tradfri_host
-
-google:
-  client_id: !secret google_client_id
-  client_secret: !secret google_client_secret
+media_player: !include media_players.yaml
 
 binary_sensor: !include binary_sensors.yaml
 sensor: !include sensors.yaml

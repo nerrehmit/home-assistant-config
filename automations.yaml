@@ -9,35 +9,6 @@
   action:
   - service: switch.bar_automatic_lighting_update
 
-- alias: Low Battery Alert
-  trigger:
-  - platform: numeric_state
-    entity_id:
-    - sensor.tradfri_motion_sensor
-    below: 20
-  action:
-  - service: notify.rocketchat_status
-    data_template:
-      message: ":battery: {{ trigger.to_state.name }} is less than 20% battery"
-
-- alias: Startup Notification
-  trigger:
-  - platform: homeassistant
-    event: start
-  action:
-  - service: notify.rocketchat_status
-    data:
-      message: ":hass: Home Assistant is up and running"
-
-- alias: Shutdown Notification
-  trigger:
-  - platform: homeassistant
-    event: shutdown
-  action:
-  - service: notify.rocketchat_status
-    data:
-      message: ":hass: Home Assistant is stopped"
-
 - alias: Office Lights On
   trigger:
   - platform: time
@@ -53,7 +24,7 @@
       - light.sonoff1645
       - light.sonoff1905
       - light.sonoff1911
-      - switch.sysTVscreen
+      - switch.systvscreen
       - switch.kafiscreen
 
 - alias: Office Lights Off
@@ -71,5 +42,5 @@
       - light.sonoff1645
       - light.sonoff1905
       - light.sonoff1911
-      - switch.sysTVscreen
+      - switch.systvscreen
       - switch.kafiscreen
